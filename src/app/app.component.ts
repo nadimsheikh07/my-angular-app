@@ -6,7 +6,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +17,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatButtonModule,
     MatIconModule,
     MatListModule,
-    FlexLayoutModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
