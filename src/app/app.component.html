@@ -1,11 +1,28 @@
-<main class="main">
-  <div class="content">
-    <button mat-fab extended>
-      Home
+<mat-sidenav-container class="example-container" fxLayout="column" fxLayoutFill>
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
     </button>
+    <span>My Application</span>
+  </mat-toolbar>
 
-    <mat-slide-toggle>Toggle me!</mat-slide-toggle>
-  </div>
-</main>
+  <mat-sidenav #sidenav mode="side" opened>
+    <mat-nav-list>
+      <mat-list-item>Item 1</mat-list-item>
+      <mat-list-item>Item 2</mat-list-item>
+      <mat-list-item>Item 3</mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
 
-<router-outlet />
+  <mat-sidenav-content>
+    <div fxFlex>
+      <h1>Welcome to {{ title }}</h1>
+      <p>Main content goes here...</p>
+    </div>
+
+    <router-outlet />
+    
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

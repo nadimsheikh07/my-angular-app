@@ -1,18 +1,24 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatSlideToggleModule
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule,
+    FlexLayoutModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
