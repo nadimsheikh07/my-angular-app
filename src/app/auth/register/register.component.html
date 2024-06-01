@@ -1,12 +1,33 @@
 <div>
   <h2>Register</h2>
-  <form formGroupName="registerForm" (ngSubmit)="register()">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" formControlName="username" required>
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    
+    <div>
+      <label>
+        Username:
+        <input type="text" formControlName="username" required>
+        <div
+          *ngIf="registerForm.get('username')?.invalid && (registerForm.get('username')?.dirty || registerForm.get('username')?.touched)">
+          <div *ngIf="registerForm.get('username')?.errors?.['required']">Username is required.</div>
+        </div>
+      </label>
+    </div>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" formControlName="password" required>
+    <div>
+      <label>
+        Password:
+        <input type="password" formControlName="password" required>
+        <div
+          *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
+          <div *ngIf="registerForm.get('password')?.errors?.['required']">Password is required.</div>
+          <div *ngIf="registerForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.
+          </div>
+        </div>
+      </label>
+    </div>
 
-    <button type="submit" [disabled]="!registerForm.valid">Register</button>
+    <div>
+      <button type="submit">Register</button>
+    </div>
   </form>
 </div>

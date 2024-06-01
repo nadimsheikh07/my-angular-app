@@ -3,15 +3,12 @@ import { AuthService } from "../auth.service";
 import { Router } from "@angular/router";
 import {
   FormBuilder,
-  FormControl,
-  FormGroup,
   Validators
 } from "@angular/forms";
 
 @Component({
   selector: "app-register",
-  standalone: true,
-  imports: [],
+  standalone: false,  
   templateUrl: "./register.component.html",
   styleUrl: "./register.component.scss"
 })

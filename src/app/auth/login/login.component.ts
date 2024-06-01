@@ -1,44 +1,48 @@
 import { Component } from "@angular/core";
 import { AuthService } from "../auth.service";
 import { Router } from "@angular/router";
-import {
-  FormGroup,
-  FormControl,
-  FormBuilder,
-  Validators
-} from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-login",
-  standalone: true,
-  imports: [],
+  standalone: false,
   templateUrl: "./login.component.html",
   styleUrl: "./login.component.scss"
 })
+
 export class LoginComponent {
-  loginForm;
+  
+  loginForm!: FormGroup;
 
   constructor(
-    private fb: FormBuilder,
-    private authService: AuthService,
-    private router: Router
-  ) {
+    private readonly fb: FormBuilder,
+    private readonly authService: AuthService,
+    private readonly router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.createLoginForm();
+  }
+
+  private createLoginForm(): void {
     this.loginForm = this.fb.group({
-      username: ["", [Validators.required, Validators.minLength(3)]],
-      password: ["", [Validators.required, Validators.minLength(6)]]
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
-  ngOnInit(): void {}
-
   login(): void {
     if (this.loginForm.valid) {
-      this.authService
-        .login(this.loginForm.value)
-        .subscribe(
-          () => this.router.navigate(["/"]),
-          err => console.error(err)
-        );
+      this.authService.login(this.loginForm.value).subscribe({
+        next: () => this.router.navigate(['/']),
+        error: (error: any) => console.error(error)
+      });
+    } else {
+      console.log('Invalid invalid',this.loginForm.get('password')?.invalid);      
+      console.log('Invalid dirty',this.loginForm.get('password')?.dirty);      
+      console.log('Invalid touched',this.loginForm.get('password')?.touched);      
+      console.log('Invalid form',this.loginForm.get('password')?.errors?.['required']);      
     }
   }
+
 }
