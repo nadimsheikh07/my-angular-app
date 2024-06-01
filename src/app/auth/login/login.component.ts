@@ -38,10 +38,7 @@ export class LoginComponent {
         error: (error: any) => console.error(error)
       });
     } else {
-      console.log('Invalid invalid',this.loginForm.get('password')?.invalid);      
-      console.log('Invalid dirty',this.loginForm.get('password')?.dirty);      
-      console.log('Invalid touched',this.loginForm.get('password')?.touched);      
-      console.log('Invalid form',this.loginForm.get('password')?.errors?.['required']);      
+      console.log('Invalid invalid',this.loginForm);      
     }
   }
 
