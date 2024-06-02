@@ -1,0 +1,12 @@
+<div class="website-container">
+
+    <nav>
+        <ul>
+            <li><a class="button" routerLink="/admin/">Dashboard</a></li>
+            <li><a class="button" routerLink="/admin/users">Users</a></li>
+            <li><button (click)="logout()">Logout</button></li>
+        </ul>
+    </nav>
+
+    <router-outlet></router-outlet>
+</div>

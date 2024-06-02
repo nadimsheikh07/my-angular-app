@@ -6,15 +6,9 @@ import { ContactComponent } from "./contact/contact.component";
 import { WebsiteLayoutComponent } from "./website-layout/website-layout.component";
 
 const routes: Routes = [
-  {
-    path: "",
-    component: WebsiteLayoutComponent,
-    children: [      
-      { path: "", component: HomeComponent },
-      { path: "about", component: AboutComponent },
-      { path: "contact", component: ContactComponent }
-    ]
-  }
+  { path: "", component: HomeComponent },
+  { path: "about", component: AboutComponent },
+  { path: "contact", component: ContactComponent }
 ];
 
 @NgModule({
