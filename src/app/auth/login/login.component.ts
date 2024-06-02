@@ -41,7 +41,7 @@ export class LoginComponent {
           const { firstName } = response;
           this.snackbarService.showMessage(`${firstName} login successfully`);
 
-          this.router.navigate(['/'])
+          this.router.navigate(['/admin'])
         },
         error: (error: any) => {
           console.log('error', error)
