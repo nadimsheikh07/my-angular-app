@@ -1,7 +1,8 @@
 import { Component } from "@angular/core";
-import { AuthService } from "../auth.service";
-import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { SnackbarService } from "../../services/snackbar.service";
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: "app-login",
@@ -11,14 +12,15 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 })
 
 export class LoginComponent {
-  
+
   loginForm!: FormGroup;
 
   constructor(
     private readonly fb: FormBuilder,
     private readonly authService: AuthService,
-    private readonly router: Router
-  ) {}
+    private readonly router: Router,
+    private snackbarService: SnackbarService
+  ) { }
 
   ngOnInit(): void {
     this.createLoginForm();
@@ -35,10 +37,14 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
         next: () => this.router.navigate(['/']),
-        error: (error: any) => console.error(error)
+        error: (error: any) => {
+          console.log('error', error)
+          const { message } = error.error;
+          this.snackbarService.showMessage(message);
+        }
       });
     } else {
-      console.log('Invalid invalid',this.loginForm);      
+      console.log('Invalid invalid', this.loginForm);
     }
   }
 
