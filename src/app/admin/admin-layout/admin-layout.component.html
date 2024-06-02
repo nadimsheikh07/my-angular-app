@@ -1,12 +1,14 @@
-<div class="website-container">
-
-    <nav>
-        <ul>
-            <li><a class="button" routerLink="/admin/">Dashboard</a></li>
-            <li><a class="button" routerLink="/admin/users">Users</a></li>
-            <li><button (click)="logout()">Logout</button></li>
-        </ul>
-    </nav>
-
-    <router-outlet></router-outlet>
-</div>
+<mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened>
+        <nav>
+            <ul>
+                <li><a class="button" routerLink="/admin/">Dashboard</a></li>
+                <li><a class="button" routerLink="/admin/users">Users</a></li>
+                <li><button (click)="logout()">Logout</button></li>
+            </ul>
+        </nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
