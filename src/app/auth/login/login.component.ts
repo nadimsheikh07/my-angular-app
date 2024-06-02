@@ -36,7 +36,13 @@ export class LoginComponent {
   login(): void {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
-        next: () => this.router.navigate(['/']),
+        next: (response) => {
+          console.log('response', response)
+          const { firstName } = response;
+          this.snackbarService.showMessage(`${firstName} login successfully`);
+
+          this.router.navigate(['/'])
+        },
         error: (error: any) => {
           console.log('error', error)
           const { message } = error.error;
