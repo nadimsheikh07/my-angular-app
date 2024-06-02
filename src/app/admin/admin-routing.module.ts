@@ -5,11 +5,11 @@ import { LoginComponent } from "./login/login.component";
 import { authGuard } from "./guards/auth.guard";
 
 const routes: Routes = [
-  { path: "", redirectTo: "dashboard", pathMatch: "full" },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   {
     path: "dashboard",
     component: DashboardComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard],    
   },
   { path: "login", component: LoginComponent }
 ];
