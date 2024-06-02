@@ -1,18 +1,15 @@
-import { Component } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
-import { SnackbarService } from "../../services/snackbar.service";
-import { AuthService } from "../auth.service";
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+import { SnackbarService } from '../../services/snackbar.service';
 
 @Component({
-  selector: "app-login",
-  standalone: false,
-  templateUrl: "./login.component.html",
-  styleUrl: "./login.component.scss"
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.scss'
 })
-
 export class LoginComponent {
-
   loginForm!: FormGroup;
 
   constructor(
@@ -53,5 +50,4 @@ export class LoginComponent {
       console.log('Invalid invalid', this.loginForm);
     }
   }
-
 }

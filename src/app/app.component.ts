@@ -6,7 +6,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { AuthModule } from './auth/auth.module';
+import { AdminModule } from './admin/admin.module';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,8 @@ import { AuthModule } from './auth/auth.module';
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
-    MatListModule,    
+    MatListModule,   
+    AdminModule 
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

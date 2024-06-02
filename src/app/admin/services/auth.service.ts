@@ -3,12 +3,13 @@ import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { Observable, BehaviorSubject } from "rxjs";
 import { tap } from "rxjs/operators";
-import { environment } from "../../environments/environment";
+import { environment } from "../../../environments/environment";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class AuthService {
+
   private authStatus = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -20,10 +21,6 @@ export class AuthService {
         this.authStatus.next(true);
       })
     );
-  }
-
-  register(data: any): Observable<any> {
-    return this.http.post("/auth/register", data);
   }
 
   logout(): void {
@@ -39,4 +36,5 @@ export class AuthService {
   getAuthStatus(): Observable<boolean> {
     return this.authStatus.asObservable();
   }
+
 }
