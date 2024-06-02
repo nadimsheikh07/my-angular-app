@@ -5,7 +5,6 @@
             <ul>
                 <li><a class="button" routerLink="/admin/">Dashboard</a></li>
                 <li><a class="button" routerLink="/admin/users">Users</a></li>
-                <li><button (click)="logout()">Logout</button></li>
             </ul>
         </nav>
     </mat-sidenav>
@@ -24,6 +23,31 @@
             <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
                 <mat-icon>share</mat-icon>
             </button>
+
+            <mat-menu #accountMenu="matMenu">
+                <ng-template matMenuContent>
+                    <button mat-menu-item>Profile</button>
+                    <button mat-menu-item>Reset Password</button>
+                    <button mat-menu-item (click)="logout()">Logout</button>
+                </ng-template>
+            </mat-menu>
+
+            <button mat-icon-button [matMenuTriggerFor]="accountMenu">
+                <mat-icon>person</mat-icon>
+            </button>
+
+            <mat-menu #appMenu="matMenu">
+                <ng-template matMenuContent>
+                    <button mat-menu-item (click)="openWebsite()">Website</button>
+                    <button mat-menu-item>Settings</button>
+                    <button mat-menu-item>Help</button>
+                </ng-template>
+            </mat-menu>
+
+            <button mat-icon-button [matMenuTriggerFor]="appMenu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+
         </mat-toolbar>
 
         <div class="container">
