@@ -3,17 +3,25 @@ import { CommonModule } from "@angular/common";
 
 import { AdminRoutingModule } from "./admin-routing.module";
 import { DashboardComponent } from "./dashboard/dashboard.component";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { LoginComponent } from "./login/login.component";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { RouterModule, RouterOutlet } from "@angular/router";
+import { AdminLayoutComponent } from "./admin-layout/admin-layout.component";
 
 @NgModule({
   declarations: [DashboardComponent, LoginComponent],
   imports: [
     CommonModule,
+    FormsModule,
+    RouterOutlet,
+    RouterModule,
     AdminRoutingModule,
     ReactiveFormsModule,
-    MatSnackBarModule
-  ]
+    MatSnackBarModule,
+    MatSidenavModule
+  ],
+  bootstrap: []
 })
 export class AdminModule {}

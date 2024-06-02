@@ -1,5 +1,6 @@
 <mat-sidenav-container class="example-container">
-    <mat-sidenav mode="side" opened>
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+        (closed)="events.push('close!')">
         <nav>
             <ul>
                 <li><a class="button" routerLink="/admin/">Dashboard</a></li>
@@ -9,6 +10,9 @@
         </nav>
     </mat-sidenav>
     <mat-sidenav-content>
+        <p><input type="checkbox" [(ngModel)]="opened" />sidenav.opened</p>
+        <p><button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
+
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
