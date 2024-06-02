@@ -4,6 +4,9 @@ import { RouterModule, RouterOutlet } from "@angular/router";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
 
 @Component({
   selector: "app-admin-layout",
@@ -13,14 +16,17 @@ import { FormsModule } from "@angular/forms";
     FormsModule,
     RouterOutlet,
     RouterModule,
-    MatSidenavModule,    
+    MatSidenavModule,   
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule 
   ],
   templateUrl: "./admin-layout.component.html",
   styleUrl: "./admin-layout.component.scss"
 })
 export class AdminLayoutComponent {
   events: string[] = [];
-  opened: boolean = false;
+  opened: boolean = true;
 
   constructor(private readonly authService: AuthService) {}
 

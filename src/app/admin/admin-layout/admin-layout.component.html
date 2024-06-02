@@ -10,9 +10,24 @@
         </nav>
     </mat-sidenav>
     <mat-sidenav-content>
-        <p><input type="checkbox" [(ngModel)]="opened" />sidenav.opened</p>
-        <p><button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
 
-        <router-outlet></router-outlet>
+        <mat-toolbar>
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+                (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>My App</span>
+            <span class="example-spacer"></span>
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+                <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                <mat-icon>share</mat-icon>
+            </button>
+        </mat-toolbar>
+
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

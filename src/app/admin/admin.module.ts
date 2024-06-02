@@ -8,7 +8,6 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { LoginComponent } from "./login/login.component";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { RouterModule, RouterOutlet } from "@angular/router";
-import { AdminLayoutComponent } from "./admin-layout/admin-layout.component";
 
 @NgModule({
   declarations: [DashboardComponent, LoginComponent],
