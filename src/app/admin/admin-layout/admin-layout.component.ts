@@ -30,7 +30,10 @@ export class AdminLayoutComponent {
   events: string[] = [];
   opened: boolean = true;
 
-  constructor(private readonly authService: AuthService,private router: Router) {}
+  constructor(
+    private readonly authService: AuthService,
+    private router: Router
+  ) {}
 
   logout(): void {
     this.authService.logout();
